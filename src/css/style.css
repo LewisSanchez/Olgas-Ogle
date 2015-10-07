@@ -1,0 +1,20 @@
+/*--fonts--*/
+@font-face{
+	font-family:'BELLABOO';
+	src: url(../fonts/ttf/bellaboo.ttf) format('truetype');
+}
+@font-face{
+	font-family:'BELLABOO';
+	src: url(../fonts/ttf/BELLABOORegular.ttf) format('truetype');
+}
+
+@font-face{
+    font-family:'BELLABOO';
+    src: url(../fonts/otf/BELLABOORegular.ttf) format('opentype');
+}
+
+p{
+    font-family: 'BELLABOO';
+    font-weight: 700;
+    font-size: 23px;
+}
