@@ -77,4 +77,10 @@ var cfg = {
   onSnapEnd: onSnapEnd
 };
 
+var boardOscillateGreen = function(){
+   document.getElementById("board_container").style.color = "red";
+};
+
 board = ChessBoard('board', cfg);
+$('#flipOrientationBtn').on('click', board.flip);
+$('#puzzleSolvedBtn').on('click', boardOscillateGreen);
