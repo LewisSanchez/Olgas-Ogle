@@ -67,6 +67,31 @@ var onSnapEnd = function() {
   board.position(game.fen());
 };
 
+// Beginning of notation code
+
+// Move number
+i = 0;
+move_number = i;
+
+var print_notation = function(){	  
+	  // PGN of chess game
+	  move_history = game.history();
+	  
+	  // Get move
+	  var move = move_history[i];
+	  
+	  // Check if white to move, if so...do not print move number
+	  if(i % 2 === 0)
+		document.getElementById("pgn").innerHTML += (move_number + 1) + move + " ";
+	  else{
+		document.getElementById("pgn").innerHTML += move + " ";
+		move_number++;
+		}
+		
+	  // Increment ply
+	  i++;
+};
+
 var cfg = {
   draggable: true,
   position: 'start',
@@ -74,7 +99,10 @@ var cfg = {
   onDrop: onDrop,
   onMouseoutSquare: onMouseoutSquare,
   onMouseoverSquare: onMouseoverSquare,
-  onSnapEnd: onSnapEnd
+  onSnapEnd: onSnapEnd,
+  orientation: 'white',
+  showNotation: true,
+  onChange: print_notation
 };
 
 var boardOscillateGreen = function(){
@@ -84,3 +112,5 @@ var boardOscillateGreen = function(){
 board = ChessBoard('board', cfg);
 $('#flipOrientationBtn').on('click', board.flip);
 $('#puzzleSolvedBtn').on('click', boardOscillateGreen);
+$('#notationBtn').on('click', print_notation);
+$('#board').on('change', print_notation);
