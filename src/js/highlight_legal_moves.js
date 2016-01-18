@@ -102,11 +102,18 @@ var print_notation = function(){
 	  {
 		// Check if white to move, if so...do not print move number
 		if(i % 2 === 0)
+		{
+		    // Print notation on the DOM
 			document.getElementById("pgn").innerHTML += (move_number + 1) + move + " ";
-		else{
+		}
+		else
+		{
+			// Print notation on the DOM
 			document.getElementById("pgn").innerHTML += move + " ";
+			
+			// Black is done moving, so time to increment move number
 			move_number++;
-			}
+		}
 		
 		// Increment ply
 		i++;

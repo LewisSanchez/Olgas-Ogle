@@ -1,20 +1,11 @@
-/*--fonts--*/
-@font-face{
-	font-family:'BELLABOO';
-	src: url(../fonts/ttf/bellaboo.ttf) format('truetype');
-}
-@font-face{
-	font-family:'BELLABOO';
-	src: url(../fonts/ttf/BELLABOORegular.ttf) format('truetype');
-}
-
-@font-face{
-    font-family:'BELLABOO';
-    src: url(../fonts/otf/BELLABOORegular.ttf) format('opentype');
-}
+@import url('http://fonts.googleapis.com/css?family=Passero');
 
 p{
-    font-family: 'BELLABOO';
-    font-weight: 700;
-    font-size: 23px;
+    font-family: 'Passero One', cursive;
+    font-weight:700;
+    font-size:47px;
+}
+
+body{
+	background-color: lightblue;
 }
