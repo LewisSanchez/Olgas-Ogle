@@ -75,26 +75,43 @@ var onSnapEnd = function() {
 i = 0;
 move_number = i;
 
+// onChange gets called twice when a player castles
+// this bool should take care of a hack that will only have printNotation get called once
+var castled = false;
+
 // PGN of chess game
 var move_history = game.history();
 
 var print_notation = function(){
-	 // PGN of chess game
-	 move_history = game.history();
+
+	  // PGN of chess game
+	  move_history = game.history();
 	  
 	  // Get move
 	  var move = move_history[i];
 	  
-	  // Check if white to move, if so...do not print move number
-	  if(i % 2 === 0)
-		document.getElementById("pgn").innerHTML += (move_number + 1) + move + " ";
-	  else{
-		document.getElementById("pgn").innerHTML += move + " ";
-		move_number++;
-		}
+	  // Check if castle
+	  if(move === 'O-O')
+	  {
+		//Toggle castle
+		castled = !castled;
+	  }
+	  
+	  // Make sure we do not print notation again if there the player castled
+	  if(castled === false)
+	  {
+		// Check if white to move, if so...do not print move number
+		if(i % 2 === 0)
+			document.getElementById("pgn").innerHTML += (move_number + 1) + move + " ";
+		else{
+			document.getElementById("pgn").innerHTML += move + " ";
+			move_number++;
+			}
 		
-	  // Increment ply
-	  i++;
+		// Increment ply
+		i++;
+	  
+	  }
 };
 
 /* var erase_notation = function(){
@@ -153,7 +170,7 @@ var back = function(){
 	
 	// If the current move is greater than or equal to zero
 	// player should be able to traverse backwards
-	if(i >= 0)
+	if(i > 0)
 	{
 	// Undo position in the game
 		game.undo();
@@ -167,19 +184,6 @@ var back = function(){
 	
 	cfg.onChange = print_notation;
 };
-
-/* var forward = function(){
-   cfg.onChange = bold_move;
-   move_history = game.history();
-	//if(i < move_history.length - 1)
-	//{
-	    // san = standard algebraic notation
-		//i++;
-		game.move(move_history[i].san);
-		board.position(game.fen());
-	//}
-	cfg.onChange = print_notation;
-}; */
 
 var forward = function(){
 
@@ -197,7 +201,6 @@ cfg.onChange = bold_move;
   
 		// Set position equal to game
 		board.position(game.fen());
-
 	}
 	
 // Allow printing of notation	
