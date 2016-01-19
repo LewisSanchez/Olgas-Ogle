@@ -235,7 +235,24 @@ var start = function(){
 };
 
 var end = function(){
+	// Change onChange event because we do not want notation to print
+	cfg.onChange = bold_move;
+	
+	// Get to end of game
+	while(i < move_history.length + 1)
+	{
+	    // Increment the move number
+		i++;
+  
+		// Make move in game
+		game.move(move_history[i-1]);
+	}
+	
+	// Display board's current position
+	board.position(game.fen());
 
+	// Now it's okay to print notation
+	cfg.onChange = print_notation;
 };
 
 var bold_move = function(){
