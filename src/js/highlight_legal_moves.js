@@ -72,8 +72,8 @@ var onSnapEnd = function() {
 // Beginning of notation code
 
 // Move number
-i = 0;
-move_number = i;
+var i = 0;
+var move_number = i;
 
 // onChange gets called twice when a player castles
 // this bool should take care of a hack that will only have printNotation get called once
@@ -197,8 +197,9 @@ var forward = function(){
 // Change onChange event because we do not want notation to print
 cfg.onChange = bold_move;
 
-// If current move is less than the game history minus one
-	if(i < (game.history().length + 1))
+// If current move is less than the game history plus one
+	//if(i < (game.history().length + 1))
+	if(i < move_history.length + 1)
 	{
 		// Increment the move number
 		i++;
@@ -215,11 +216,33 @@ cfg.onChange = print_notation;
 	
 };
 
+var start = function(){
+	// Change onChange event because we do not want notation to print
+	cfg.onChange = bold_move;
+
+	// reset game to start position
+	game.reset();
+	
+	// reset ply to zero
+	i = 0;
+	
+	// reset board
+	board.position(game.fen());
+	
+	// Now it's okay to print notation
+	cfg.onChange = print_notation;
+	
+};
+
+var end = function(){
+
+};
+
 var bold_move = function(){
 	// Do nothing for now
 };
 
-/*  cg_pgn = ['[Event "Rilton Cup"]',
+  cg_pgn = ['[Event "Rilton Cup"]',
 		  '[Site "Stockholm SWE"]',
 		  '[Date "2014.01.04"]',
 		  '[EventDate "2013.12.27"]',
@@ -242,21 +265,28 @@ var bold_move = function(){
 'Qg5+ 37. Kf1 Qf4 38. Be2 Ra1+ 39. Rd1 Ra3 40. Qd7 Ra2 41. Qd3',
 'Qh2 42. Qf3 Kh6 43. Rd7 Ra3 44. Rd3 Ra1+ 45. Bd1 Rb1 46. Rd7',
 'b5 47. Qe3+ Kg7 48. Qd4+ Kh6 49. Qh8+ Kg5 50. Rd5+ f5',
-'51. Rxf5+ gxf5 52. Qg7+ 1-0']; */
+'51. Rxf5+ gxf5 52. Qg7+ 1-0'];
  
-//game.load_pgn(cg_pgn.join('\n'));
- 
-//game.fen();
+game.load_pgn(cg_pgn.join('\n'));
+
+// Copy game history into array before we reset the game to the starting position
+move_history = game.history();
+
+// Write notation to DOM
+document.getElementById("pgn").innerHTML += game.pgn({ max_width: 5, newline_char: '<br />' });;
+
+// Reset board
+game.reset();
 
 // Create chessboard
 board = ChessBoard('board', cfg);
 
 // Set chessboard to correct position
-//board.position(game.fen());
- 
-document.getElementById("pgn").innerHTML += game.pgn({ max_width: 5, newline_char: '<br />' });;
+board.position('start');
 
 $('#backBtn').on('click', back);
 $('#forwardBtn').on('click', forward);
+$('#startBtn').on('click', start);
+$('#endBtn').on('click', end);
 $('#flipOrientationBtn').on('click', board.flip);
 $('#puzzleSolvedBtn').on('click', boardOscillateGreen);

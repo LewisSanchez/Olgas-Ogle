@@ -23,12 +23,13 @@
 <script src="../../lib/chess.js_master/chess.js"></script>
 	<div id="board_container" style="height: 600 px; width: 600 px;"></div>
 		<div id="board" style="width: 400px; margin-left: auto; margin-right: auto;"></div>
-			<input type="button" id="backBtn" value="Back"/>
-			<input type="button" id="forwardBtn" value="Forward" /><br />
+		    <input type="button" id="startBtn" value="<<" style="display: inline-block; "/>
+			<input type="button" id="backBtn" value="<" style="display: inline-block; "/>
+			<input type="button" id="forwardBtn" value=">" style="display: inline-block;"/>
+			<input type="button" id="endBtn" value=">>" style="display: inline-block; "/><br \>
 			<input type="button" id="flipOrientationBtn" value="Flip" /><br />
-			<input type="button" id="puzzleSolvedBtn" value="Puzzle Solved" /><br />
-		
-			<p>PGN: <span id="pgn"></span></p>
+			
+			<p>PGN: <span id="pgn" style="text-align: left;"></span></p>
 	</div>
 </body>
 
