@@ -248,6 +248,9 @@ var end = function(){
 		game.move(move_history[i-1]);
 	}
 	
+	// I don't know why this function is off by one, but if so...this should fix it
+	i--;
+	
 	// Display board's current position
 	board.position(game.fen());
 
