@@ -65,7 +65,7 @@
 		<div style="display:table-cell; width: 200px; ">
 
                    <div id="pgn_container" style="padding-top: 0px; height: 450px; width: 200px; overflow-y: scroll; float: right;">
-			   <p style="display: inline; "><span id="pgn" style="text-align: left; "></span></p>
+			   <p><span id="pgn" style="text-align: left; "></span></p>
 		   </div>
 		</div>
        </div>

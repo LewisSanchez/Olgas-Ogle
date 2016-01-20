@@ -20,8 +20,3 @@ body{
    background-color: red;
    border-radius: 25px;
 }
-
-overflow-y
-{
-  border-radius: 25px;
-}
