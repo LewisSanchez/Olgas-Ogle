@@ -12,6 +12,8 @@
 	<!-- Javascript -->
 	<script src="../js/chessboard-0.3.0.js"></script>
 	<script src="../js/chessboard-0.3.0.min.js"></script>
+        <script src="https://use.fonticons.com/6fd86759.js"></script>
+	<script src="../js/keyboard_events.js"></script>
 
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-1.10.1.js"></script>
@@ -58,14 +60,15 @@
 			           <input type="button" id="backBtn" value="<" style="display: inline-block; "/>
 			           <input type="button" id="endBtn" value=">>" style="display: inline-block; float: right; "/>
 			           <input type="button" id="forwardBtn" value=">" style="display: inline-block; float: right; "/><br \>
-			           <input type="button" id="flipOrientationBtn" value="Flip" /><br />
+				   <input type="button" id="flipOrientationBtn" value="Flip" /><br />
+                                   <i class="icon icon-arrows-v"></i>
 			</div>
 
 		</div>
 		<div style="display:table-cell; width: 200px; ">
 
                    <div id="pgn_container" style="padding-top: 0px; height: 450px; width: 200px; overflow-y: scroll; float: right;">
-			   <p><span id="pgn" style="text-align: left; "></span></p>
+			   <p style="display: inline; "><span id="pgn" style="text-align: left; "></span></p>
 		   </div>
 		</div>
        </div>

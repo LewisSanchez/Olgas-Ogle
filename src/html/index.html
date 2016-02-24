@@ -13,6 +13,8 @@
 	<script src="../js/chessboard-0.3.0.js"></script>
 	<script src="../js/chessboard-0.3.0.min.js"></script>
 
+	<script src="../js/keyboard_events.js"></script>
+
 	<!-- Jquery -->
 	<script src="https://code.jquery.com/jquery-1.10.1.js"></script>
 
@@ -20,24 +22,6 @@
 
 <body>
 <script src="../../lib/chess.js_master/chess.js"></script>
-
-
-<!--<div id="big_container" style="height: auto; width: 600px; margin-left: auto; margin-right: auto; ">
-	<div id="board_container" style="height: auto; width: 400px; float: left;">
-          <p id="titleOfSite" align=center >Ogla's Oculus</p>
-	<div id="board" style="height: auto; width: 400px;"></div>
-	       	        <input type="button" id="startBtn" value="<<" style="display: inline-block; "/>
-			<input type="button" id="backBtn" value="<" style="display: inline-block; "/>
-			<input type="button" id="endBtn" value=">>" style="display: inline-block; float: right; "/>
-			<input type="button" id="forwardBtn" value=">" style="display: inline-block; float: right; "/><br \>
-			<input type="button" id="flipOrientationBtn" value="Flip" /><br />
-        </div>
-	
-<div id="pgn_container" style="height: 400px; width: 200px; overflow-y: scroll; float: right;">
-	<p><span id="pgn" style="text-align: left; "></span></p>
-</div>
-
-</div>-->
 
 <div style="display:table; margin-left: auto; margin-right: auto; height: auto; width: 600px;">
 	<div style="display:table-row;">
@@ -54,11 +38,16 @@
 			<div id="board_container" style="height: 450px; width: 400px; float: left;">
 				<div id="board" style="height: auto; width: 400px;">
 				</div>
-	       	                   <input type="button" id="startBtn" value="<<" style="display: inline-block; "/>
+	       	           <input type="button" id="startBtn" value="<<" style="display: inline-block; "/>
 			           <input type="button" id="backBtn" value="<" style="display: inline-block; "/>
 			           <input type="button" id="endBtn" value=">>" style="display: inline-block; float: right; "/>
 			           <input type="button" id="forwardBtn" value=">" style="display: inline-block; float: right; "/><br \>
-			           <input type="button" id="flipOrientationBtn" value="Flip" /><br />
+				       <input type="button" id="flipOrientationBtn" value="Flip" />
+					   <input type="button" id="clearBtn" value="Clear" />
+					   <input type="button" id="resizeBtn" value="Resize" />
+					   <input type="button" id="setPositionBtn" value="Set Position" />
+					   <br />
+                                   <i class="icon icon-arrows-v"></i>
 			</div>
 
 		</div>

@@ -1,0 +1,55 @@
+$(document).ready(function(){
+
+  $(document).keydown(function(e){
+    if (e.keyCode == 39) { //right arrow
+      if (e.ctrlKey) {
+        $('#endBtn').click();
+      } else {
+        $('#forwardBtn').click();
+      }
+      return false;
+    }
+  });
+
+  $(document).keydown(function(e){
+    if (e.keyCode == 37) { //left arrow
+      if (e.ctrlKey) {
+        $('#startBtn').click();
+      } else {
+        $('#backBtn').click();
+      }
+    }
+    return false;
+  });
+
+  $(document).keydown(function(e){
+    if (e.keyCode == 38) { //up arrow
+      if (currentGame > 0) {
+        if (e.ctrlKey) {
+          loadGame(0);
+        } else {
+          loadGame(currentGame - 1);
+        }
+      }
+      $('#gameSelect').val(currentGame);
+    }
+    return false;
+  });
+
+  $(document).keydown(function(e){
+    if (e.keyCode == 40) { //down arrow
+      if (currentGame < pgnData.length - 1) {
+        if (e.ctrlKey) {
+          loadGame(pgnData.length - 1);
+        } else {
+          loadGame(currentGame + 1);
+        }
+      }
+      $('#gameSelect').val(currentGame);
+    }
+    return false;
+  });
+
+
+});
+
